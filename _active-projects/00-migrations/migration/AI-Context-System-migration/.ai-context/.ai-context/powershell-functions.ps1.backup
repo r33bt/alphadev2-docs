@@ -1,0 +1,86 @@
+﻿# AI Context Management Functions
+Write-Host "🤖 AI Context Management loaded! Commands: ai-scan, ai-context, ai-restore, ai-log, ai-update" -ForegroundColor Green
+
+function ai-log {
+    param([string]$Message)
+    & ".ai-context\scripts\log-decision.ps1" $Message
+}
+
+function ai-scan {
+    & ".ai-context\scripts\scan-project.ps1"
+}
+
+function ai-update {
+    ai-log "Context update checkpoint"
+    & ".ai-context\scripts\scan-project.ps1"
+    & ".ai-context\scripts\generate-context.ps1" -Type 'update'
+}
+
+function ai-restore {
+    & ".ai-context\scripts\generate-context.ps1"
+}
+
+function Generate-ProjectReadme {
+    param([string]$ProjectName = (Split-Path (Get-Location) -Leaf))
+    
+    $dateStamp = Get-Date -Format "yyyy-MM-dd"
+    $readmeFileName = "README-$ProjectName-$dateStamp.md"
+    
+    Write-Host "📝 Generating $readmeFileName..." -ForegroundColor Yellow
+    
+    $content = "# $ProjectName Project`n`n"
+    $content += "*Auto-generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')*`n"
+    $content += "*Powered by AI Context Preservation System*`n`n"
+    $content += "## Project Overview`n"
+    $content += "**Project**: $ProjectName`n"
+    $content += "**Location**: $(Get-Location)`n`n"
+    $content += "## AI Context System`n"
+    $content += "- Use ``ai-log 'message'`` to track progress`n"
+    $content += "- Use ``ai-restore`` for AI conversation recovery`n`n"
+    $content += "---`n"
+    $content += "*Generated as: $readmeFileName*"
+    
+    $content | Out-File -FilePath $readmeFileName -Encoding UTF8
+    Write-Host "✅ Generated $readmeFileName" -ForegroundColor Green
+}
+
+function Initialize-AIContext {
+    param([string]$ProjectName = (Split-Path (Get-Location) -Leaf))
+    
+    Write-Host "🚀 Initializing AI Context for '$ProjectName' project..." -ForegroundColor Yellow
+    
+    $dateStamp = Get-Date -Format "yyyy-MM-dd"
+    
+    # Enhanced filenames
+    $devLogFileName = "readme-development-log-$ProjectName-$dateStamp.md"
+    $faqFileName = "SYSTEM-FAQ-$ProjectName-$dateStamp.md"
+    
+    # Create development log
+    $devLogContent = "# $ProjectName Project - AI Context Log`n*Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')*`n`n## 🔄 **RECENT ACTIVITY** (Newest First)`n`n"
+    $devLogContent | Out-File -FilePath $devLogFileName -Encoding UTF8
+    Write-Host "✅ Created $devLogFileName" -ForegroundColor Green
+    
+    # Copy SYSTEM-FAQ
+    $sourcePath = "C:\Users\user\alphadev2\ai-context-system"
+    if (Test-Path "$sourcePath\SYSTEM-FAQ.md") {
+        Copy-Item "$sourcePath\SYSTEM-FAQ.md" -Destination $faqFileName
+        Write-Host "✅ Created $faqFileName" -ForegroundColor Green
+    }
+    
+    # Generate project README
+    Generate-ProjectReadme $ProjectName
+    
+    Write-Host "🎉 Enhanced initialization complete!" -ForegroundColor Green
+}
+
+function Deploy-AIContextSystem {
+    param([string]$SourcePath = "C:\Users\user\alphadev2\ai-context-system\.ai-context")
+    
+    Write-Host "🚀 Deploying AI Context System..." -ForegroundColor Cyan
+    
+    if (Test-Path $SourcePath) {
+        Copy-Item $SourcePath -Destination "." -Recurse -Force
+        Initialize-AIContext
+        Write-Host "🎯 Deployment complete!" -ForegroundColor Green
+    }
+}
