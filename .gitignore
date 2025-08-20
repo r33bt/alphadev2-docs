@@ -1,25 +1,4 @@
-# AlphaDev2 .gitignore
-
-# Credentials and Secrets (NEVER COMMIT THESE)
-secrets/
-*.env
-!*.env.example
-!*.env.template
-credentials/
-*.key
-*.pem
-*.p12
-*.crt
-*.pfx
-
-# Cache and temporary files
-cache/
-*.tmp
-*.temp
-temp/
-*.log
-
-# Node.js
+﻿# Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -28,41 +7,32 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
-.next/
-.nuxt/
+*.tgz
 
-# IDE files
-.vscode/settings.json
-.vscode/launch.json
+# Environment and credentials
+.env
+.env.local
+.env.production
+*-creds-*
+wp-creds-*
+
+# IDE and OS files
+.vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# OS files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
+.DS_Store
 
-# Development tools cache
-.vercel/
-.cache/
+# Tutorials and examples
+workspace/resources/tutorials/
+cursor-tutor/
 
-# Backup files
-*.backup
-*.bak
+# Temporary files
+*.tmp
+*.temp
+nul
 
-# Windows specific
-desktop.ini
-$RECYCLE.BIN/
-
-# Configuration backups (these contain sensitive info)
-config/backups/
-
-# Tool specific caches and configs
-tools/*/cache/
-installers/
+# Archives and backups
+*.zip
+*.rar
+*-backup/
+archive-to-delete/
