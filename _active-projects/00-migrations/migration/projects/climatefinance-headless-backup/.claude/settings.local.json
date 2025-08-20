@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:vercel.com)",
+      "WebFetch(domain:stocktiming.com)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(vercel:*)",
+      "Bash(npx create-next-app:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(rm:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:stocktiming-headless-ax7lo46j7-bruces-projects-39321526.vercel.app)",
+      "WebFetch(domain:staging.stocktiming.com)",
+      "Bash(powershell:*)",
+      "Bash(set VERCEL_TOKEN=vQQ8aXF8pIjFtqI4j4g5Lc8x)",
+      "WebFetch(domain:stocktiming-headless-jl6rcdco9-bruces-projects-39321526.vercel.app)",
+      "WebFetch(domain:stocktiming-headless-1j1yytb98-bruces-projects-39321526.vercel.app)",
+      "Bash(curl:*)",
+      "WebFetch(domain:stocktiming-headless-4k2271zym-bruces-projects-39321526.vercel.app)",
+      "WebFetch(domain:stocktiming-headless-csny8g3aq-bruces-projects-39321526.vercel.app)",
+      "WebFetch(domain:stocktiming-headless-b9khesz1h-bruces-projects-39321526.vercel.app)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:stocktiming-headless-f7p4b2kti-bruces-projects-39321526.vercel.app)",
+      "WebFetch(domain:stocktiming-headless-gvx16dd5i-bruces-projects-39321526.vercel.app)",
+      "Bash(nslookup:*)",
+      "Bash(move \"DETAILED_MIGRATION_LOG_PART_*.md\" \"migration\\documentation\"\")",
+      "Bash(move DETAILED_MIGRATION_LOG_PART_*.md migrationdocumentation)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

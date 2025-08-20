@@ -1,0 +1,1 @@
+give detailed step by step for  FFmpeg (Best for Automation & Scripting)
